@@ -70,7 +70,8 @@ body {
 
 .intro,
 .home,
-.works,.services {
+.works,
+.services {
     grid-column: 2;
 }
 
@@ -214,24 +215,53 @@ body {
     transform: translateY(15vh);
 }
 
-/*Fixed header*/
-.fixed-header {
-    position: fixed;
-}
-
 /*Header*/
-.header .logo,.fixed-header .logo {
+.header .logo {
     width: 60%;
 }
 
 .header {
-    position: absolute;
-    width: 100%;
-    height: 35%;
-    grid-template-columns: 1fr 3fr 1fr;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 0 10px;
     align-items: center;
-    padding: 0 30px;
     z-index: 99;
+    transition: 0.6s;
+}
+
+.menuToggle {
+    display: grid;
+    grid-gap: 8px;
+    order: 3;
+}
+
+.menuToggle span {
+    display: grid;
+    width: 35px;
+    height: 3px;
+    background: #fff;
+    transition: 0.5s;
+}
+
+.menuToggle span:nth-child(1) {
+    width: 25px;
+    transform: translateX(10px);
+}
+
+.menuToggle.active span {
+    background: var(--primaryColor);
+}
+
+.menuToggle.active span:nth-child(1) {
+    width: 35px;
+    transform: rotate(-45deg);
+}
+
+.menuToggle.active span:nth-child(2) {
+    transform: translateY(-10px) rotate(45deg);
 }
 
 .social-icons {
@@ -244,9 +274,32 @@ body {
 }
 
 @keyframes slideUp {
-    100%{
+    100% {
         transform: none;
     }
+}
+
+.header .navbar.active {
+    width: 100%;
+    height: calc(100% - 64px);
+    position: fixed;
+    top: 64px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondaryColor);
+}
+
+.header .navbar.active ul li a,
+.header .navbar.active ul li a.active {
+    font-size: 20px;
+    color: #fff;
+}
+
+.header .navbar.active ul {
+    flex-direction: column;
+    grid-row-gap: 18px;
 }
 
 .navbar ul {
@@ -254,9 +307,13 @@ body {
     justify-content: center;
 }
 
-.navbar ul li{
+.navbar ul li {
     transform: translateY(-500px);
     animation: slideIn 1s ease-out forwards;
+}
+
+.navbar.active ul li {
+    transform: translateX(500px);
 }
 
 .navbar ul li:nth-child(2) {
@@ -284,12 +341,13 @@ body {
 }
 
 @keyframes slideIn {
-    100%{
+    100% {
         transform: none;
     }
 }
 
-.navbar ul li a,.header .contact a,
+.navbar ul li a,
+.header .contact a,
 .social-icons ul li a {
     display: block;
     margin-right: 20px;
@@ -313,9 +371,11 @@ body {
     color: #9a9a9a;
     font-weight: normal;
     font-size: 14px;
+    display: none;
 }
 
-.navbar ul li a:hover,.social-icons ul li a:hover,
+.navbar ul li a:hover,
+.social-icons ul li a:hover,
 .header .contact a:hover {
     color: var(--primaryColor);
 }
@@ -489,7 +549,7 @@ body {
 
 /*services section*/
 .services-wrap {
-	background: #101010
+    background: #101010
 }
 
 #w4 {
@@ -519,6 +579,20 @@ body {
         display: grid;
     }
 
+    .header {
+        width: 100%;
+        grid-template-columns: 1fr 3fr 1fr;
+        padding: 0 30px;
+    }
+
+    .menuToggle {
+        display: none;
+    }
+
+    .header .contact a span {
+        display: inline-block;
+    }
+
     .background {
         grid-template-columns: 10% 80% 10%;
     }
@@ -529,7 +603,7 @@ body {
         margin-bottom: 20px;
     }
 
-    .intro .content-title{
+    .intro .content-title {
         font-size: 8rem;
     }
 
@@ -586,49 +660,49 @@ body {
 
 
 /*#container {
-	height: 100vh;
-	overflow: hidden;
-	position: relative;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
     touch-action: none;
     transform: translate3d(0px, 0px, 0px);
     transition: all 700ms ease 0s;
 }
 
 #container section {
-	height: 100vh;
-	transition: 0.5s;
+    height: 100vh;
+    transition: 0.5s;
 }
 
 .intro {
-	background: red;
+    background: red;
 }
 
 .home {
-	background: black;
+    background: black;
 }
 
 .works {
-	background: red;
+    background: red;
 }
 
 .services-header {
-	background: black;
+    background: black;
 }
 
 .services {
-	background: red;
+    background: red;
 }
 
 .testimonials {
-	background: black;
+    background: black;
 }
 
 .about-us {
-	background: red;
+    background: red;
 }
 
 .contact-us {
-	background: black;
+    background: black;
 }
 
 

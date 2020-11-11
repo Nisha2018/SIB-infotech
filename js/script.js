@@ -9,44 +9,44 @@ var totalSlideNumber = $(".background").length;
 
 // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
 function parallaxScroll(evt) {
-  if (isFirefox) {
-    //Set delta for Firefox
-    delta = evt.detail * (-120);
-  } else if (isIe) {
-    //Set delta for IE
-    delta = -evt.deltaY;
-  } else {
-    //Set delta for all other browsers
-    delta = evt.wheelDelta;
-  }
+    if (isFirefox) {
+        //Set delta for Firefox
+        delta = evt.detail * (-120);
+    } else if (isIe) {
+        //Set delta for IE
+        delta = -evt.deltaY;
+    } else {
+        //Set delta for all other browsers
+        delta = evt.wheelDelta;
+    }
 
-  if (ticking != true) {
-    if (delta <= -scrollSensitivitySetting) {
-      //Down scroll
-      ticking = true;
-      if (currentSlideNumber !== totalSlideNumber - 1) {
-        currentSlideNumber++;
-        nextItem();
-      }
-      slideDurationTimeout(slideDurationSetting);
+    if (ticking != true) {
+        if (delta <= -scrollSensitivitySetting) {
+            //Down scroll
+            ticking = true;
+            if (currentSlideNumber !== totalSlideNumber - 1) {
+                currentSlideNumber++;
+                nextItem();
+            }
+            slideDurationTimeout(slideDurationSetting);
+        }
+        if (delta >= scrollSensitivitySetting) {
+            //Up scroll
+            ticking = true;
+            if (currentSlideNumber !== 0) {
+                currentSlideNumber--;
+            }
+            previousItem();
+            slideDurationTimeout(slideDurationSetting);
+        }
     }
-    if (delta >= scrollSensitivitySetting) {
-      //Up scroll
-      ticking = true;
-      if (currentSlideNumber !== 0) {
-        currentSlideNumber--;
-      }
-      previousItem();
-      slideDurationTimeout(slideDurationSetting);
-    }
-  }
 }
 
 // ------------- SET TIMEOUT TO TEMPORARILY "LOCK" SLIDES ------------- //
 function slideDurationTimeout(slideDuration) {
-  setTimeout(function() {
-    ticking = false;
-  }, slideDuration);
+    setTimeout(function() {
+        ticking = false;
+    }, slideDuration);
 }
 
 // ------------- ADD EVENT LISTENER ------------- //
@@ -55,13 +55,13 @@ window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
 
 // ------------- SLIDE MOTION ------------- //
 function nextItem() {
-  var $previousSlide = $(".background").eq(currentSlideNumber - 1);
-  $previousSlide.removeClass("up-scroll").addClass("down-scroll");
+    var $previousSlide = $(".background").eq(currentSlideNumber - 1);
+    $previousSlide.removeClass("up-scroll").addClass("down-scroll");
 }
 
 function previousItem() {
-  var $currentSlide = $(".background").eq(currentSlideNumber);
-  $currentSlide.removeClass("down-scroll").addClass("up-scroll");
+    var $currentSlide = $(".background").eq(currentSlideNumber);
+    $currentSlide.removeClass("down-scroll").addClass("up-scroll");
 }
 
 
@@ -103,56 +103,56 @@ if (screen.width <= 800) {
 
     }
 
-        function disableScroll() {
-            // Get the current page scroll position 
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+    function disableScroll() {
+        // Get the current page scroll position 
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
 
-                // if any scroll is attempted, set this to the previous value 
-                window.onscroll = function() {
-                    window.scrollTo(scrollLeft, scrollTop);
-                };
-        }
-
-        function enableScroll() {
-            window.onscroll = function() {};
-        }
-
-
-        // ------------- SET TIMEOUT TO TEMPORARILY "LOCK" SLIDES ------------- //
-        function slideDurationTimeout(slideDuration) {
-            setTimeout(function() {
-                ticking = false;
-            }, slideDuration);
-        }
-
-        // ------------- SLIDE MOTION ------------- //
-
-        function nextItem() {
-            var $previousSlide = $(".background").eq(currentSlideNumber - 1);
-            $previousSlide.removeClass("up-scroll").addClass("down-scroll");
-        }
-
-        function previousItem() {
-            var $currentSlide = $(".background").eq(currentSlideNumber);
-            $currentSlide.removeClass("down-scroll").addClass("up-scroll");
-        }
-
-        var startY = 0;
-
-        var dist = 0;
-        window.addEventListener('load', function() {
-            window.addEventListener('touchstart', function(e) {
-                var touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
-                startY = parseInt(touchobj.clientY); // get x position of touch point relative to left edge of browser
-                e.preventDefault();
-            }, false);
-            window.addEventListener('touchmove', _.throttle(parallaxScroll, 60), false);
-        }, false);
-        disableScroll();
-
-
+            // if any scroll is attempted, set this to the previous value 
+            window.onscroll = function() {
+                window.scrollTo(scrollLeft, scrollTop);
+            };
     }
+
+    function enableScroll() {
+        window.onscroll = function() {};
+    }
+
+
+    // ------------- SET TIMEOUT TO TEMPORARILY "LOCK" SLIDES ------------- //
+    function slideDurationTimeout(slideDuration) {
+        setTimeout(function() {
+            ticking = false;
+        }, slideDuration);
+    }
+
+    // ------------- SLIDE MOTION ------------- //
+
+    function nextItem() {
+        var $previousSlide = $(".background").eq(currentSlideNumber - 1);
+        $previousSlide.removeClass("up-scroll").addClass("down-scroll");
+    }
+
+    function previousItem() {
+        var $currentSlide = $(".background").eq(currentSlideNumber);
+        $currentSlide.removeClass("down-scroll").addClass("up-scroll");
+    }
+
+    var startY = 0;
+
+    var dist = 0;
+    window.addEventListener('load', function() {
+        window.addEventListener('touchstart', function(e) {
+            var touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
+            startY = parseInt(touchobj.clientY); // get x position of touch point relative to left edge of browser
+            e.preventDefault();
+        }, false);
+        window.addEventListener('touchmove', _.throttle(parallaxScroll, 60), false);
+    }, false);
+    disableScroll();
+
+
+}
 
 
 // works slider
@@ -162,14 +162,21 @@ const slides = document.querySelectorAll('.slide');
 var i = 0;
 
 function nextSlide() {
-  slides[i].classList.remove('active');
-  i = (i + 1) % slides.length;
-  slides[i].classList.add('active');
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
 }
 
 function prevSlide() {
-  slides[i].classList.remove('active');
-  i = (i - 1 + slides.length) % slides.length;
-  slides[i].classList.add('active');
+    slides[i].classList.remove('active');
+    i = (i - 1 + slides.length) % slides.length;
+    slides[i].classList.add('active');
 }
 
+// menuToggle
+function toggleMenu() {
+    const menuToggle = document.querySelector('.menuToggle');
+    const navbar = document.querySelector('.navbar');
+    menuToggle.classList.toggle('active');
+    navbar.classList.toggle('active');
+  }
