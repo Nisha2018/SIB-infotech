@@ -180,3 +180,11 @@ function toggleMenu() {
     menuToggle.classList.toggle('active');
     navbar.classList.toggle('active');
   }
+
+// ripple effect
+$(document).ready(function(){
+    $('.intro').ripples({
+        dropRadius: 12,
+        perturbance: 0.05
+    });
+})

@@ -6,6 +6,7 @@
 
 html {
     font-size: 62.5%;
+    user-select: none;
 }
 
 body {
@@ -703,82 +704,4 @@ body {
         left: -8px;
         top: -8px;
     }
-
 }
-
-
-
-
-/*#container {
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    touch-action: none;
-    transform: translate3d(0px, 0px, 0px);
-    transition: all 700ms ease 0s;
-}
-
-#container section {
-    height: 100vh;
-    transition: 0.5s;
-}
-
-.intro {
-    background: red;
-}
-
-.home {
-    background: black;
-}
-
-.works {
-    background: red;
-}
-
-.services-header {
-    background: black;
-}
-
-.services {
-    background: red;
-}
-
-.testimonials {
-    background: black;
-}
-
-.about-us {
-    background: red;
-}
-
-.contact-us {
-    background: black;
-}
-
-
-
-
-
-
-*/
-
-/*red : #ef3f3f
-
-greys
-about us section - #0d0d0d
-#171718
-testimonials section - #121212
-services section - #101010
-services section2  - #0a0a0a
-box-shadow: 0 0 0 7px #494949, 0px 4px 25px 0 rgba(20,20,20,.6)
-font-family: mazzardh,Arial;
-
-body {
-    margin: 0;
-    font-family: mazzardh,Arial;
-    font-size: 15px;
-    position: relative;
-    background: #040404;
-    color: #fff;
-    overflow-x: hidden;
-}*/
