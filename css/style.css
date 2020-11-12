@@ -78,7 +78,6 @@ body {
 
 .background:first-child {
     background-image: url(../images/bg1.webp);
-    background-size: contain;
     -webkit-transform: translateY(-15vh);
     transform: translateY(-15vh);
 }
