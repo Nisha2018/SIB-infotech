@@ -179,10 +179,10 @@ function toggleMenu() {
     const navbar = document.querySelector('.navbar');
     menuToggle.classList.toggle('active');
     navbar.classList.toggle('active');
-  }
+}
 
 // ripple effect
-$(document).ready(function(){
+$(document).ready(function() {
     $('.intro').ripples({
         dropRadius: 12,
         perturbance: 0.05

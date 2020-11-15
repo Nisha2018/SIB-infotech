@@ -35,6 +35,10 @@ a:hover {
     cursor: pointer;
 }
 
+input[type="radio"] {
+    display: none;
+}
+
 .p-tb {
     padding: 5rem 0;
 }
@@ -72,7 +76,8 @@ body {
 .intro,
 .home,
 .works,
-.services {
+.services,
+.services-content {
     grid-column: 2;
 }
 
@@ -96,16 +101,40 @@ body {
     background: var(--secondaryColor);
 }
 
+.background:nth-child(4) {
+    background: #101010;
+}
+
 /* Set stacking context of slides */
 .background:nth-child(1) {
-    z-index: 3;
+    z-index: 8;
 }
 
 .background:nth-child(2) {
-    z-index: 2;
+    z-index: 7;
 }
 
 .background:nth-child(3) {
+    z-index: 6;
+}
+
+.background:nth-child(4) {
+    z-index: 5;
+}
+
+.background:nth-child(5) {
+    z-index: 4;
+}
+
+.background:nth-child(6) {
+    z-index: 3;
+}
+
+.background:nth-child(7) {
+    z-index: 2;
+}
+
+.background:nth-child(8) {
     z-index: 1;
 }
 
@@ -389,7 +418,7 @@ body {
 
 .intro span.scroll-down {
     position: absolute;
-    bottom: 25px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
@@ -598,10 +627,6 @@ body {
 }
 
 /*services section*/
-.services-wrap {
-    background: #101010
-}
-
 #w4 {
     position: absolute;
     top: 55%;
@@ -613,6 +638,102 @@ body {
     display: none;
     z-index: -1;
 }
+
+/*services-content section*/
+.services-content {
+    display: grid;
+    justify-content: center;
+    position: relative;
+    top: 31vh;
+}
+
+.serv {
+    top: 34vh;
+}
+
+.accordion {
+    position: relative;
+    top: -10vh;
+}
+
+.accordion .contentBx .label {
+    font-size: 24px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(.9);
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    transition: all .8s ease;
+}
+
+.accordion .contentBx .label:hover {
+    color: #fff;
+}
+
+.accordion .contentBx .content p {
+    font-size: 13px;
+    line-height: 1.4;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateZ(0) scale(0);
+    transform-style: preserve-3d;
+    transform-origin: top;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+#s1:checked~.accordion .c1 .content p,
+#s2:checked~.accordion .c2 .content p,
+#s3:checked~.accordion .c3 .content p,
+#s4:checked~.accordion .c4 .content p {
+    height: auto;
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+}
+
+#s1:checked~.accordion .c1 .label,
+#s2:checked~.accordion .c2 .label,
+#s3:checked~.accordion .c3 .label,
+#s4:checked~.accordion .c4 .label {
+    transform: translateZ(0) scale(1);
+    color: #fff;
+}
+
+.services-content .image-container {
+    position: relative;
+    display: grid;
+    width: 70%;
+    justify-self: center;
+}
+
+.services-content .image-container img {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(.2);
+    -webkit-filter: blur(100px);
+    -moz-filter: blur(100px);
+    filter: blur(100px);
+    transition: all 0.8s linear;
+}
+
+#s1:checked~.image-container .img1,
+#s2:checked~.image-container .img2,
+#s3:checked~.image-container .img3,
+#s4:checked~.image-container .img4 {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    filter: blur(0);
+}
+
 
 
 /*Desktop view*/
@@ -651,6 +772,10 @@ body {
         font-size: 6rem;
         font-weight: 800;
         margin-bottom: 20px;
+    }
+
+    .services .content-title {
+        font-size: 9rem;
     }
 
     .intro .content-title {
@@ -703,4 +828,25 @@ body {
         left: -8px;
         top: -8px;
     }
-}
+
+    .services-content {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .services-content .image-container {
+        width: 100%;
+    }
+
+    .accordion .contentBx .label {
+        font-size: 30px;
+        transform: translateZ(0) scale(.7);
+    }
+
+    .accordion {
+        top: 10vh;
+    }
+
+    .accordion .contentBx .content p {
+        font-size: 16px;
+        line-height: 24px;
+    }
