@@ -24,6 +24,10 @@ img {
     height: auto;
 }
 
+.font-bold {
+    font-weight: 800;
+}
+
 p {
     color: #818181;
 }
@@ -77,7 +81,10 @@ body {
 .home,
 .works,
 .services,
-.services-content {
+.services-content,
+.testimonials,
+.about-us,
+.contact-us {
     grid-column: 2;
 }
 
@@ -101,8 +108,17 @@ body {
     background: var(--secondaryColor);
 }
 
-.background:nth-child(4) {
+.background:nth-child(4),
+.background:nth-child(5) {
     background: #101010;
+}
+
+.background:nth-child(6) {
+    background: #121212;
+}
+
+.background:nth-child(7) {
+    background: #0d0d0d;
 }
 
 /* Set stacking context of slides */
@@ -418,7 +434,7 @@ body {
 
 .intro span.scroll-down {
     position: absolute;
-    bottom: 40px;
+    bottom: 3vh;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
@@ -734,7 +750,316 @@ body {
     filter: blur(0);
 }
 
+/*Testimonials section*/
+.testimonials,
+.about-us,
+.contact-us {
+    position: relative;
+    top: 35vh;
+    text-align: left;
+}
 
+.testimonials {
+    top: 30vh;
+}
+
+.testimonials {
+    display: grid;
+    grid-row-gap: 1.5rem;
+    align-content: start;
+}
+
+.testimonials .head .title {
+    font-size: 2.5rem;
+}
+
+.testimonialCont {
+    width: 120%;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-row-gap: 1rem;
+}
+
+.testimonialCont .row1,
+.testimonialCont .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1rem;
+}
+
+.testimonialCont .row2 {
+    margin-left: 125px;
+}
+
+.testimonialBox {
+    background: #1c1c1f;
+    padding: 25px;
+    padding-bottom: 10px;
+    box-shadow: 0px 8px 9px 3px #0d0d0d, 0px 8px 10px 0 #0d0d0d;
+    display: grid;
+    grid-row-gap: 4px;
+}
+
+.testimonialBox .info {
+    font-size: 14px;
+}
+
+.testimonialBox .name p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #fff;
+}
+
+.testimonialBox .name {
+    position: relative;
+    padding: 0 0 0 90px;
+    margin-bottom: 20px;
+}
+
+.testimonialBox .name::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.testimonialBox .name::before,
+.google,
+.yelp {
+    background: url(../images/spr.png);
+}
+
+.logos {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 15px;
+}
+
+.google {
+    width: 138px;
+    height: 50px;
+    margin-top: 12px;
+}
+
+.yelp {
+    width: 122px;
+    height: 62px;
+    background-position: 0 -50px;
+}
+
+.rating span {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: url(../images/star.svg) no-repeat;
+    margin: auto 6px;
+}
+
+.testimonials .more {
+    justify-self: end;
+    /*position: absolute;
+    top: 20px;
+    right: -60px;*/
+}
+
+.testimonials .more a {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    border-bottom: solid 6px #ef3f3f;
+    line-height: 6px;
+}
+
+.testimonialBox.t1 .name::before {
+    background-position: 0 -112px;
+}
+
+.testimonialBox.t2 .name::before {
+    background-position: 100% -112px;
+}
+
+.testimonialBox.t3 .name::before {
+    background-position: 0 -182px;
+}
+
+.testimonialBox.t4 .name::before {
+    background-position: 100% -182px;
+}
+
+.testimonialBox.t5 .name::before {
+    background-position: 0 -252px;
+}
+
+.testimonialBox.t6 .name::before {
+    background-position: 100% -252px;
+}
+
+.testimonials .head {
+    display: grid;
+}
+
+
+/*About section*/
+.about-us {
+    display: grid;
+    font-size: 15px;
+}
+
+.about-us .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: start;
+}
+
+.about-us .stats span {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.stats .stat1 {
+    border-bottom: 1px solid #28282a;
+    border-right: 1px solid #28282a;
+    padding: 10px 20px 22px 0;
+}
+
+.stat2 {
+    border-bottom: 1px solid #28282a;
+    padding: 10px 0 22px 22px;
+}
+
+.stat3 {
+    border-right: 1px solid #28282a;
+    padding: 22px 22px 0 0;
+}
+
+.stat4 {
+    padding: 22px 0 0 22px;
+}
+
+.about-us .about-content .title p {
+    font-size: 2.5rem;
+    padding-top: 30px;
+    color: #fff;
+}
+
+.about-content {
+    display: grid;
+    align-content: start;
+    grid-row-gap: 2rem;
+}
+
+.about-content .info {
+    display: grid;
+    grid-row-gap: 10px;
+}
+
+.about-content .info ul {
+    list-style: disc;
+    display: grid;
+    grid-row-gap: 5px;
+    padding-left: 25px;
+    color: #aeadad;
+}
+
+/*Contact Us section*/
+.contact-us {
+    position: relative;
+    text-align: center;
+}
+
+.contact-us .content-title {
+    font-size: 2.5rem;
+}
+
+.contact-us .subtitle {
+    color: #b2b2b2;
+}
+
+.contact-info a {
+    font-size: 20px;
+}
+
+.contact-form .form-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+}
+
+.contact-form input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    padding: 0 0 10px 0;
+    font-family: var(--fontFamily);
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+}
+
+input[name="message"] {
+    grid-column: span 2;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+input:focus {
+    border-bottom: 1px solid var(--primaryColor);
+}
+
+.contact-form .btn {
+    color: #fff;
+    font-size: 23px;
+    letter-spacing: 1px;
+    border: none;
+    padding: 12px 95px;
+    margin-top: 3rem;
+    font-weight: 800;
+    background: rgb(239 63 63 / 82%);
+    cursor: pointer;
+}
+
+.contact-us .contact-info {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+/*Footer*/
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 52vh;
+}
+
+.footer .social {
+    padding-bottom: 1rem;
+}
+
+.footer .social a {
+    color: #404449;
+    font-weight: 800;
+    padding-right: 10px;
+    transition: all 0.2s linear;
+}
+
+.footer .social a:hover {
+    color: #fff;
+}
+
+.copyright {
+    color: #404449;
+    font-size: 13px;
+}
 
 /*Desktop view*/
 @media (min-width: 991px) {
@@ -765,7 +1090,7 @@ body {
     }
 
     .background {
-        grid-template-columns: 10% 80% 10%;
+        grid-template-columns: 8% 84% 8%;
     }
 
     .content-title {
@@ -850,3 +1175,87 @@ body {
         font-size: 16px;
         line-height: 24px;
     }
+
+    .about-us {
+        grid-template-columns: 40% 60%;
+        grid-column-gap: 5rem;
+    }
+
+    .about-us .stats span {
+        font-size: 60px;
+    }
+
+    .contact-us .content-title {
+        font-size: 4rem;
+    }
+
+    .contact-us .subtitle {
+        font-size: 1.8rem;
+    }
+
+    .contact-us .contact-info {
+        grid-template-columns: auto auto;
+        grid-column-gap: 8rem;
+    }
+
+    .contact-info a {
+        font-size: 23px;
+        font-weight: 800;
+    }
+
+
+    .contact-form .form-controls {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 6rem;
+    }
+
+    input[name="message"] {
+        grid-column: span 1;
+    }
+
+    .testimonials .head {
+        align-items: center;
+        grid-template-columns: auto auto auto 1fr;
+        grid-column-gap: 3rem;
+    }
+
+    .testimonials .head .title {
+        font-size: 45px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .testimonials .head .rating {
+        position: absolute;
+        right: -10px;
+        top: 8px;
+    }
+
+    .testimonials .head .rating span {
+        width: 20px;
+        margin: 0;
+    }
+
+    .t1,
+    .t4 {
+        grid-column: span 3;
+    }
+
+    .testimonialCont .row2 {
+        margin-left: 42px;
+    }
+
+    .t2,
+    .t3,
+    .t5,
+    .t6 {
+        display: none;
+    }
+
+    .testimonials .more {
+        position: absolute;
+        bottom: 10vh;
+        right: 20px;
+    }
+}
