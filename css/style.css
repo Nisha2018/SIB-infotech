@@ -121,6 +121,17 @@ body {
     background: #0d0d0d;
 }
 
+.background:nth-child(8) {
+    background: #171718 url(../images/map.jpg) no-repeat;
+    background-size: cover;
+    background-position: 50% 200px;
+    background-attachment: fixed;
+}
+
+#contact-us {
+    position: relative;
+}
+
 /* Set stacking context of slides */
 .background:nth-child(1) {
     z-index: 8;
@@ -784,6 +795,18 @@ body {
     top: 30vh;
 }
 
+#test-wrapper::after {
+    content: '';
+    background-image: -moz-linear-gradient( 180deg,rgb(23,23,24) 0%,rgba(23,23,24,0) 100%);
+    background-image: -webkit-linear-gradient( 180deg,rgb(23,23,24) 0%,rgba(23,23,24,0) 100%);
+    background-image: -ms-linear-gradient( 180deg,rgb(23,23,24) 0%,rgba(23,23,24,0) 100%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 20%;
+}
+
 .testimonials .head::before {
     content: '';
     position: absolute;
@@ -907,6 +930,7 @@ body {
     border-bottom: solid 6px #ef3f3f;
     line-height: 6px;
     transition: 0.2s;
+    z-index: 10;
 }
 
 .more:hover {
@@ -1028,6 +1052,7 @@ body {
 .contact-us {
     position: relative;
     text-align: center;
+    z-index: 11;
 }
 
 .contact-us .content-title {
@@ -1090,15 +1115,39 @@ input:focus {
     display: grid;
     justify-content: center;
     align-items: center;
-    padding: 3rem 0;
+    padding: 2rem 0;
+}
+
+.location-icon img{
+    width: 28px;
+    padding-top: 40px;
+}
+
+#contact-us::before {
+    content: '';
+    position: absolute;
+    border-top: 450px solid #171718;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg,rgba(0,0,0,0) 0%,rgba(5,5,5,.5) 50%,rgba(23,23,24,1) 100%);
+}
+
+section#contact-us::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 195px;
+    background: linear-gradient(0deg,rgba(2,2,2,1) 0%,rgba(3,3,3,.5) 50%,rgba(0,0,0,0) 100%);
+    z-index: -1;
 }
 
 /*Footer*/
-.footer {
-    position: absolute;
-    width: 100%;
-    bottom: 52vh;
-}
 
 .footer .social {
     padding-bottom: 1rem;
@@ -1336,5 +1385,9 @@ input:focus {
         position: absolute;
         bottom: 10vh;
         right: 20px;
+    }
+
+    .contact-us {
+        top: 30vh;
     }
 }
