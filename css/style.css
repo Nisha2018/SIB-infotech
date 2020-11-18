@@ -191,6 +191,10 @@ body {
     animation: wave 6s linear infinite;
 }
 
+.services .content-title {
+    font-size: 5rem;
+}
+
 .content-subtitle {
     font-size: 1.6rem;
     font-weight: 600;
@@ -434,7 +438,7 @@ body {
 
 .intro span.scroll-down {
     position: absolute;
-    bottom: 3vh;
+    bottom: 8vh;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
@@ -655,6 +659,23 @@ body {
     z-index: -1;
 }
 
+.services-content {
+    position: relative;
+}
+
+.services-content::after {
+    content: '';
+    position: absolute;
+    top: 28%;
+    left: -15vw;
+    right: -15vw;
+    bottom: 0;
+    background: #0a0a0a;
+    border-radius: 146vw/30vw 30vw 0 0;
+    border-top: 4px solid #1b1b1b;
+    z-index: -1;
+}
+
 /*services-content section*/
 .services-content {
     display: grid;
@@ -763,6 +784,17 @@ body {
     top: 30vh;
 }
 
+.testimonials .head::before {
+    content: '';
+    position: absolute;
+    top: -72px;
+    left: -194px;
+    width: 287px;
+    height: 232px;
+    background: url(../images/quotes.svg);
+    z-index: -1;
+}
+
 .testimonials {
     display: grid;
     grid-row-gap: 1.5rem;
@@ -866,12 +898,39 @@ body {
     right: -60px;*/
 }
 
+.testimonials .more{
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    position: relative;
+    padding: 0 38px 0 8px;
+    border-bottom: solid 6px #ef3f3f;
+    line-height: 6px;
+    transition: 0.2s;
+}
+
+.more:hover {
+    margin-right: -5px;
+}
+
+.more:before, .more:after {
+    content: '';
+    width: 6px;
+    height: 18px;
+    background: #ef3f3f;
+    position: absolute;
+    top: -5px;
+    right: -2px;
+    transform: rotate(-45deg);
+}
+
+.more:before {
+    transform: rotate(45deg);
+    top: 5px;
+}
 .testimonials .more a {
     font-size: 18px;
     color: #fff;
-    font-weight: 700;
-    border-bottom: solid 6px #ef3f3f;
-    line-height: 6px;
 }
 
 .testimonialBox.t1 .name::before {
@@ -1100,7 +1159,15 @@ input:focus {
     }
 
     .services .content-title {
-        font-size: 9rem;
+        font-size: 134px;
+        position: relative;
+    }
+
+    .services .content-subtitle {
+        font-size: 20px;
+        position: relative;
+        bottom: 25px;
+        line-height: 28px;
     }
 
     .intro .content-title {
@@ -1176,6 +1243,10 @@ input:focus {
         line-height: 24px;
     }
 
+    .testimonials .head .title {
+        font-size: 45px;
+    }
+
     .about-us {
         grid-template-columns: 40% 60%;
         grid-column-gap: 5rem;
@@ -1219,13 +1290,21 @@ input:focus {
         grid-column-gap: 3rem;
     }
 
-    .testimonials .head .title {
+    d .testimonials .headd .title {
         font-size: 45px;
     }
 
 }
 
 @media (max-width: 768px) {
+    #w4 {
+        width: auto;
+        height: 400px;
+        top: 48%;
+        transform: translateY(-48%);
+        left: auto;
+    }
+
     .testimonials .head .rating {
         position: absolute;
         right: -10px;
